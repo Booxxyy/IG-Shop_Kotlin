@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IG Shop</string>
+    <string name="header_title">81 IG</string>
+    <string name="special_offers_title">Special offers</string>
+    <string name="achievements_and_awards_title">Achievements and awards</string>
+    <string name="our_new_products_title">\tOur new products</string>
+    <string name="search_hint">\tFind a sportcar ...</string>
+</resources>
