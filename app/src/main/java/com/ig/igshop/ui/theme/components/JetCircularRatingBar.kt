@@ -91,7 +91,6 @@ fun JetCircularRatingBar(
     }
 }
 
-
 @Preview
 @Composable
 private fun JetCircularRatingBarPreview() {
