@@ -23,8 +23,6 @@ import kotlin.math.cos
 import kotlin.math.sin
 import com.microsoft.fluent.mobile.icons.R
 
-
-
 @Composable
 fun JetCircularRatingBar(
     rating: Int,
@@ -33,17 +31,17 @@ fun JetCircularRatingBar(
     val radius = 47
 
     Box(
-        modifier = modifier.size((radius * 2 + 40).dp),
+        modifier = modifier.size((radius * 2 + 20).dp),
         contentAlignment = Alignment.Center
     ) {
         Canvas(
-            modifier = Modifier.fillMaxSize()
+            modifier = modifier.fillMaxSize()
         ) {
             val strokeWidth = 10.dp.toPx()
             val circleRadius = radius.dp.toPx() - strokeWidth / 2
 
             drawCircle(
-                color = Color(0xff39444c),
+                color = Color(0xFF39444C),
                 radius = circleRadius,
                 center = center,
                 style = Stroke(width = strokeWidth)
@@ -51,7 +49,7 @@ fun JetCircularRatingBar(
         }
 
         Box(
-            modifier = Modifier.fillMaxSize(),
+            modifier = modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
             val starCount = 5
@@ -61,11 +59,10 @@ fun JetCircularRatingBar(
                 val angle = 2f * PI.toFloat() * i / starCount - PI.toFloat() / 2f
                 val starX = circleRadius * cos(angle)
                 val starY = circleRadius * sin(angle)
-
                 val color = if (i < rating) Color.Yellow else Color.Gray
 
                 Box(
-                    modifier = Modifier
+                    modifier = modifier
                         .align(Alignment.Center)
                         .offset(
                             x = starX,
@@ -74,14 +71,13 @@ fun JetCircularRatingBar(
                 ) {
                     Icon(
                         imageVector = ImageVector.vectorResource(R.drawable.ic_fluent_star_20_filled),
-                        contentDescription = "Star",
+                        contentDescription = "star",
                         tint = color,
-                        modifier = Modifier.size(25.dp)
+                        modifier = modifier.size(27.dp)
                     )
                 }
             }
         }
-
         Text(
             text = rating.toString(),
             color = Color.White,
