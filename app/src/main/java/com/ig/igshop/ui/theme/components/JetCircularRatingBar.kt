@@ -23,6 +23,8 @@ import kotlin.math.cos
 import kotlin.math.sin
 import com.microsoft.fluent.mobile.icons.R
 
+
+
 @Composable
 fun JetCircularRatingBar(
     rating: Int,
@@ -31,17 +33,17 @@ fun JetCircularRatingBar(
     val radius = 47
 
     Box(
-        modifier = modifier.size((radius * 2 + 20).dp),
+        modifier = modifier.size((radius * 2 + 40).dp),
         contentAlignment = Alignment.Center
     ) {
         Canvas(
-            modifier = modifier.fillMaxSize()
+            modifier = Modifier.fillMaxSize()
         ) {
             val strokeWidth = 10.dp.toPx()
             val circleRadius = radius.dp.toPx() - strokeWidth / 2
 
             drawCircle(
-                color = Color(0xFF39444C),
+                color = Color(0xFF8F9BA2),
                 radius = circleRadius,
                 center = center,
                 style = Stroke(width = strokeWidth)
@@ -49,20 +51,21 @@ fun JetCircularRatingBar(
         }
 
         Box(
-            modifier = modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
             val starCount = 5
-            val circleRadius = radius.dp - 5.dp
+            val circleRadius = radius.dp - 4.dp
 
             for (i in 0 until starCount) {
                 val angle = 2f * PI.toFloat() * i / starCount - PI.toFloat() / 2f
                 val starX = circleRadius * cos(angle)
                 val starY = circleRadius * sin(angle)
-                val color = if (i < rating) Color.Yellow else Color.Gray
+
+                val color = if (i < rating) Color.Yellow else Color(0xffdad2d2)
 
                 Box(
-                    modifier = modifier
+                    modifier = Modifier
                         .align(Alignment.Center)
                         .offset(
                             x = starX,
@@ -70,14 +73,15 @@ fun JetCircularRatingBar(
                         )
                 ) {
                     Icon(
-                        imageVector = ImageVector.vectorResource(R.drawable.ic_fluent_star_20_filled),
-                        contentDescription = "star",
+                        imageVector = ImageVector.vectorResource(R.drawable.ic_fluent_star_24_filled),
+                        contentDescription = "Star",
                         tint = color,
-                        modifier = modifier.size(27.dp)
+                        modifier = Modifier.size(26.dp)
                     )
                 }
             }
         }
+
         Text(
             text = rating.toString(),
             color = Color.White,
